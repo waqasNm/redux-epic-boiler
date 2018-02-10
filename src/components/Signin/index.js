@@ -8,9 +8,12 @@ class Signin extends Component {
         return (
             <div>
                 <h1>Login screen</h1>
-                <button onClick={()=>
-                    this.props.submit({ username: "Mohsin", password: 123})}>
-                    Login user 
+                Email:
+                <input type="text" id="email" value={this.props.loginState.email}  onChange={this.props.change.bind(this)}/><br />
+                Password:
+                <input type="password" id="password" value={this.props.loginState.password} onChange={this.props.change.bind(this)} /><br />
+                <button onClick={this.props.submit.bind(this)}>
+                    Login 
                 </button>
             </div>
         );

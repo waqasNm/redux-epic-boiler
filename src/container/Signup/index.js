@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { browserHistory } from 'react-router';
 import { AuthActions,FireActions } from "../../store/actions/index";
-import { Signin } from './../../components/index';
+import { SignupComponent } from './../../components/index';
 
-class Login extends Component {
+class SignUp extends Component {
 
     constructor(props){
         super();
         this.state = {
-            email:"dummy@gmail.com",
-            password:"abc123"
+            username:"",
+            email:"",
+            password:"",
         }
     }
 
@@ -19,27 +20,29 @@ class Login extends Component {
         console.log(123)
     }
 
-    onchangeValue(e){
-        this.setState({[e.target.id]:e.target.value})
+    onChangeValue(e){
+        this.setState({[e.target.id]:e.target.value});
     }
 
-    loginSubmit = () => {
+    signupSubmit = () => {
         console.log(this.state)
         let user = {
+            username:this.state.username,
             email:this.state.email,
             password:this.state.password
         }
-        this.props.login(user);
-        // this.setState({
-        //     email:"",
-        //     password:""
-        // })
+        this.props.signup(user);
+        this.setState({
+            username:"",
+            email:"",
+            password:""
+        })
     }
 
     render() {
-        console.log("login State",this.props.userObj)
+        console.log(this.props.userObj)
         return (
-            <Signin submit={this.loginSubmit} loginState={this.state} change={this.onchangeValue.bind(this)}/>
+            <SignupComponent submit={this.signupSubmit}  _onchageValue={this.onChangeValue.bind(this)} signupState={this.state}/>
         );
     }
 }
@@ -53,8 +56,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         signin: (userObj) => dispatch(AuthActions.signin(userObj)),
-        login: (userObj) => dispatch(FireActions.signin(userObj))
+        signup: (userObj) => dispatch(FireActions.signup(userObj))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

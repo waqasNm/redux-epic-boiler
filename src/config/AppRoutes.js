@@ -6,12 +6,12 @@ import {
 
 import {
   App,
-  Signup,
+  SignupComponent,
   Home
 } from './../components/index';
 
 import {
-  Signin
+  Signin,Signup
 } from './../container/index';
 
 const ParentApp = () => (

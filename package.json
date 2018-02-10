@@ -2,10 +2,11 @@
   "name": "Redux_Boilerplate",
   "version": "1.0.0",
   "private": true,
-  "repository": "https://github.com/MuhammadMohsin/redux-boiler.git",
-  "author": "Mohsin <mmohsinkhalid@outlook.com>",
+  "repository": "",
+  "author": "Waqas",
   "license": "MIT",
   "dependencies": {
+    "firebase": "^4.9.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
